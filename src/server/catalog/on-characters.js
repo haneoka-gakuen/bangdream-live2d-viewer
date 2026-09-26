@@ -127,9 +127,34 @@ export const onCharacters = [
     pathPrefixes: ["025_adv", "025_live"],
   },
   {
+    id: "sub-mortis",
+    name: "sub 墨缇丝",
+    pathPrefixes: ["sub_mortis"],
+  },
+  {
     id: "sub-mana",
     name: "sub 纯田真奈",
     pathPrefixes: ["sub_mana"],
+  },
+  {
+    id: "sub-viola",
+    name: "sub 薇欧拉",
+    pathPrefixes: ["sub_viola"],
+  },
+  {
+    id: "sub-bell",
+    name: "sub 蓓儿",
+    pathPrefixes: ["sub_bell"],
+  },
+  {
+    id: "sub-popo",
+    name: "sub 波波",
+    pathPrefixes: ["sub_popo"],
+  },
+  {
+    id: "sub-mizuho",
+    name: "sub 丰川瑞穗",
+    pathPrefixes: ["sub_mizuho"],
   },
   {
     id: "sub-kiyotsugu",
@@ -145,6 +170,16 @@ export const onCharacters = [
     id: "sub-minami",
     name: "sub 森美奈美",
     pathPrefixes: ["sub_minami"],
+  },
+  {
+    id: "sub-shifune",
+    name: "sub 都筑诗船",
+    pathPrefixes: ["sub_shifune"],
+  },
+  {
+    id: "sub-yumemita_manager",
+    name: "sub 梦限大经纪人",
+    pathPrefixes: ["sub_yumemita_manager"],
   },
 ];
 
