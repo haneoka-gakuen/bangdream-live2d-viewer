@@ -1,5 +1,6 @@
 import { convertLive2DExpressionAssetJson, isLive2DExpressionAssetPath } from "@/src/lib/live2dExpressionAsset";
 import { fetchBangDreamR2Object } from "@/src/server/r2/bangdream-r2";
+import { getHaneokaOnModelDescriptor, isHaneokaOnSourceEnabled } from "./haneoka";
 import { getOnLive2DModelDescriptor } from "./model-descriptor-cache";
 import { getOnLive2DAssetKey } from "./remote";
 
@@ -7,6 +8,31 @@ const MTN_PARAM_IMPORT_LINE = /^\s*PARAM_IMPORT=.*(?:\r?\n)?/gim;
 
 export async function createOnLive2DAssetResponse({ model, path = [] }) {
   const filePath = Array.isArray(path) ? path.join("/") : "";
+
+  if (isHaneokaOnSourceEnabled()) {
+    // The descriptor carries absolute haneoka URLs, so the browser fetches
+    // moc/motions/expressions/textures straight from haneoka and never hits
+    // this route for anything besides the descriptor itself.
+    if (filePath !== "buildData.asset") {
+      return {
+        ok: false,
+        status: 404,
+        body: { error: "Haneoka ON assets are referenced by absolute URL" },
+      };
+    }
+
+    const descriptorRecord = await getHaneokaOnModelDescriptor(model);
+
+    return {
+      ok: true,
+      isJson: true,
+      body: descriptorRecord.processedBuildData,
+      headers: {
+        "Cache-Control": "public, max-age=300, s-maxage=300",
+      },
+    };
+  }
+
   if (filePath === "buildData.asset") {
     const descriptorRecord = await getOnLive2DModelDescriptor(model);
 

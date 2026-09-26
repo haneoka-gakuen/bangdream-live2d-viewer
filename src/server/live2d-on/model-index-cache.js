@@ -1,6 +1,11 @@
 import { onCharacterById } from "@/src/server/catalog/on-characters";
 import { readBangDreamR2Json } from "@/src/server/r2/bangdream-r2";
 import {
+  getHaneokaLive2DIndex,
+  getHaneokaModelsForCharacter,
+  isHaneokaOnSourceEnabled,
+} from "./haneoka";
+import {
   LIVE2D_ON_INFO_KEY,
   isOnModelForCharacter,
   toOnLive2DModelEntry,
@@ -38,6 +43,18 @@ export async function getOnLive2DModelIndex(characterId) {
   const cached = characterIndexCache.get(characterId);
   if (cached && now - cached.fetchedAt <= CACHE_DURATION) {
     return cached;
+  }
+
+  if (isHaneokaOnSourceEnabled()) {
+    const index = await getHaneokaLive2DIndex();
+    const nextCache = {
+      characterId,
+      character,
+      models: getHaneokaModelsForCharacter(index, characterId),
+      fetchedAt: index.fetchedAt,
+    };
+    characterIndexCache.set(characterId, nextCache);
+    return nextCache;
   }
 
   const info = await getOnLive2DInfoIndex();

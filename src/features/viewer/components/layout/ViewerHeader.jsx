@@ -18,6 +18,16 @@ export function ViewerHeader({ isDarkMode, onToggleDarkMode }) {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <a
+              href="https://haneoka.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center p-2 rounded-lg border border-black/10 bg-white transition-colors hover:bg-[#E5004F]/5 dark:bg-[#2a2732] dark:border-white/10"
+              title="haneoka.org"
+              aria-label="前往 haneoka.org"
+            >
+              <img src="/haneoka.svg" alt="haneoka.org" className="h-6 w-6" />
+            </a>
             <HelpSheet />
             <button
               onClick={onToggleDarkMode}

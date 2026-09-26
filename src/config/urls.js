@@ -21,6 +21,7 @@ export const PUBLIC_ASSET_PATHS = {
 export const API_ROUTES = {
   models: "/api/models",
   characterAvailability: "/api/character-availability",
+  characters: "/api/characters",
   spineModels: "/api/spine-models",
   download: "/api/download",
   spineDownload: "/api/spine-download",
@@ -30,6 +31,7 @@ export const API_ROUTES = {
   charaModified: "/api/charam",
   charaOn: "/api/charaon",
   charaOnModels: "/api/charaon/models",
+  charaOnCharacters: "/api/charaon/characters",
   spine: "/api/spine",
 };
 
@@ -84,6 +86,14 @@ export function getOnModelsApiUrl(characterId) {
   const params = new URLSearchParams({ characterId });
   params.set("rulesVersion", MODEL_LIST_RULES_VERSION);
   return `${API_ROUTES.charaOnModels}?${params.toString()}`;
+}
+
+export function getOnCharactersApiUrl() {
+  return API_ROUTES.charaOnCharacters;
+}
+
+export function getCharactersApiUrl() {
+  return API_ROUTES.characters;
 }
 
 export function getCharacterAvailabilityApiUrl(modelType, isModified = false) {

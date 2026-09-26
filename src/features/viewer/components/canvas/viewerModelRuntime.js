@@ -616,6 +616,7 @@ const createLive2DInstance = async (config) => {
     autoHitTest: false,
     autoFocus: false,
     breathDepth: 0,
+    crossOrigin: "anonymous",
   });
   disableLive2DBreathing(instance);
   instance.__viewerType = MODEL_TYPES.LIVE2D;
