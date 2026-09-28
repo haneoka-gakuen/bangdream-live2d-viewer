@@ -9,3 +9,4 @@ export { SimpleSlider } from "./SimpleSlider";
 export { LocalModelUpload } from "./LocalModelUpload";
 export { ModelDownloadButton } from "./ModelDownloadButton";
 export { OpenInHaneokaButtons } from "./shared/OpenInHaneokaButtons";
+export { OnModelDownloadButton } from "./OnModelDownloadButton";

@@ -1,6 +1,7 @@
 "use client";
 
 import { OnCharacterSelect, OnModelSelect, OpenInHaneokaButtons } from "@/src/features/viewer/components/controls";
+import { OnModelDownloadButton } from "@/src/features/viewer/components/controls/OnModelDownloadButton";
 
 export function RemoteOnModelSection({
   activeModel,
@@ -39,6 +40,12 @@ export function RemoteOnModelSection({
           onReload={handleModelReload}
           disabled={isBatching}
           isReloading={isReloading}
+          trailingActions={
+            <OnModelDownloadButton
+              modelId={activeModel.modelId}
+              disabled={isBatching}
+            />
+          }
         />
       </div>
     </>

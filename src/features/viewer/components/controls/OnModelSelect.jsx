@@ -16,6 +16,7 @@ const OnModelSelect = memo(function OnModelSelect({
   onReload,
   disabled,
   isReloading = false,
+  trailingActions = null,
 }) {
   const swrKey = characterId ? getOnModelsApiUrl(characterId) : null;
   const { data, isLoading } = useSWR(swrKey, fetchJson, {
@@ -57,6 +58,7 @@ const OnModelSelect = memo(function OnModelSelect({
         </SelectField>
       </div>
 
+      {trailingActions}
       <Button
         variant="outline"
         size="icon"
