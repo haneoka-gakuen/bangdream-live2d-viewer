@@ -6,8 +6,17 @@ export const EXTERNAL_URLS = {
   bestdoriLive2DAssetBase: withoutTrailingSlash(
     withFallback(process.env.NEXT_PUBLIC_BESTDORI_LIVE2D_ASSET_BASE, "https://bestdori.com/tool/live2d/asset"),
   ),
+  haneokaBase: "https://haneoka.org",
   sevenZipWasmCdn: "https://cdn.jsdelivr.net/npm/7z-wasm@1.2.0/7zz.wasm",
 };
+
+const HANEOKA_PAGE_LOCALE = "zh-CN";
+const HANEOKA_LIVE2D_SERVERS = ["jp", "intl"];
+
+export function getHaneokaLive2DUrl(server, modelId) {
+  if (!HANEOKA_LIVE2D_SERVERS.includes(server) || !modelId) return null;
+  return `${EXTERNAL_URLS.haneokaBase}/${server}/${HANEOKA_PAGE_LOCALE}/live2d/${encodeURIComponent(modelId)}/`;
+}
 
 export const PUBLIC_ASSET_PATHS = {
   libarchiveScript: "/libarchive.js",

@@ -22,6 +22,17 @@ export function ViewerHeader({ isDarkMode, onToggleDarkMode }) {
               href="https://haneoka.org"
               target="_blank"
               rel="noopener noreferrer"
+              className="group hidden lg:inline-flex items-center h-10 px-3 rounded-lg border border-black/10 bg-white text-xs font-semibold text-[#E5004F] transition-colors hover:bg-[#E5004F]/5 dark:bg-[#2a2732] dark:border-white/10"
+              title="前往 haneoka.org"
+              aria-label="Powered by haneoka — 前往 haneoka.org"
+            >
+              Powered by haneoka，BanG Dream! Our Notes的资源库！
+              <span aria-hidden="true" className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="https://haneoka.org"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg border border-black/10 bg-white transition-colors hover:bg-[#E5004F]/5 dark:bg-[#2a2732] dark:border-white/10"
               title="haneoka.org"
               aria-label="前往 haneoka.org"

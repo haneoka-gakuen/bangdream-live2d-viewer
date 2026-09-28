@@ -24,6 +24,7 @@ const sections = [
     icon: Link,
     items: [
       [{ icon: Star }, { type: "link", label: "Bestdori", href: "https://bestdori.com/" }],
+      [{ icon: Star }, { type: "link", label: "haneoka", href: "https://haneoka.org/" }],
       [{ icon: MessageCircle }, { type: "link", label: "WebGAL 交流群", href: "https://t.bilibili.com/328261011?comment_on=1&comment_root_id=265078938272&share_tag=s_i&type=2#reply265078938272" }],
       [{ icon: Tent }, { type: "link", label: "邦多礼庇护所", href: "https://tools.shelter.net.cn/" }],
       [{ icon: Link }, { type: "link", label: "KonshinHaoshin/mygoxmujica_archive", href: "https://github.com/KonshinHaoshin/mygoxmujica_archive" }],
